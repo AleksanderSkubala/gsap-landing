@@ -66,7 +66,7 @@ function HeroSection() {
   }, []);
 
   function handleScrollTo (id) {
-    gsap.to(window, {duration: 0.3, scrollTo: `#${id}`});
+    gsap.to(window, {duration: 0.35, scrollTo: `#${id}`});
   };
 
   return (
