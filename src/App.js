@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import HeroSection from './sections/HeroSection.js';
+import AboutSection from './sections/AboutSection.js';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -30,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     font-size: 1.4rem;
   }
+
+  p {
+    font-size: 17px;
+  }
 `;
 
 const PageWrapper = styled.div`
@@ -42,7 +47,8 @@ function App() {
     <>
       <GlobalStyles></GlobalStyles>
       <PageWrapper>
-        <HeroSection></HeroSection>
+        <HeroSection/>
+        <AboutSection/>
       </PageWrapper>
     </>
   );

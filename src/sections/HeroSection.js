@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { TimelineMax, Power1, Power4 } from 'gsap';
-import { gsap, CSSPlugin } from 'gsap/all';
-gsap.registerPlugin(CSSPlugin);
+import { gsap, CSSPlugin, ScrollToPlugin } from 'gsap/all';
+gsap.registerPlugin(CSSPlugin, ScrollToPlugin);
 
 const StyledWrraper = styled.section`
   width: 100%;
@@ -33,7 +33,7 @@ const StyledNav = styled.nav`
     padding: 5px 8px;
 
     @media (min-width: 425px) {
-      font-size: 18px;
+      font-size: 17px;
       padding: 10px 20px;
     }
   }
@@ -65,13 +65,17 @@ function HeroSection() {
     );
   }, []);
 
+  function handleScrollTo (id) {
+    gsap.to(window, {duration: 0.3, scrollTo: `#${id}`});
+  };
+
   return (
     <StyledWrraper>
       <StyledNav>
         <ul ref={menu}>
-          <li>About us</li>
-          <li>Our projects</li>
-          <li>Contact us</li>
+          <li onClick={() => handleScrollTo('about')}>About us</li>
+          <li onClick={() => handleScrollTo('experts')}>Our experts</li>
+          <li onClick={() => handleScrollTo('contact')}>Contact us</li>
         </ul>
       </StyledNav>
       <StyledContent ref={content}>
